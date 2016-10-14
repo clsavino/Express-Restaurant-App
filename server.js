@@ -57,11 +57,18 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, './app/public/tables.html'));
 });
 
-app.get('/api/tables', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/data/table.js'));
+app.post('/api/tables', function (req, res) {
+	var newreservation = req.body;
+	newreservation.routeName = newreservation.name.replace(/\s+/g, '').toLowerCase();
+
+	console.log(newreservation);
+
+	tableJS.reservations.push(newreservation);
+
+	res.json(newreservation);
 });
 
-app.get('/api/waitlist', function (req, res) {
+app.post('/api/waitlist', function (req, res) {
     res.sendFile(path.join(__dirname, './app/data/waitlist.js'));
 });
 
