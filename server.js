@@ -57,6 +57,10 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, './app/public/tables.html'));
 });
 
+app.get('/api/tables', function (req, res) {
+    res.sendFile(path.join(__dirname, './app/public/tables.html'));
+});
+
 app.post('/api/tables', function (req, res) {
 	var newreservation = req.body;
 	newreservation.routeName = newreservation.name.replace(/\s+/g, '').toLowerCase();
