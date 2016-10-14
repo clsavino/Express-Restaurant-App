@@ -56,6 +56,18 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, './app/public/tables.html'));
 });
 
+app.get('/tables', function (req, res) {
+    res.sendFile(path.join(__dirname, './app/public/tables.html'));
+});
+
+app.get('/api/tables', function (req, res) {
+    res.sendFile(path.join(__dirname, './app/data/tables.js'));
+});
+
+app.get('/api/waitlist', function (req, res) {
+    res.sendFile(path.join(__dirname, './app/data/waitlist.js'));
+});
+
 // Search for Specific Reservation (or all reservations) - provides JSON
 // app.get('/api/?', function (req, res) {
 //     var chosen = req.params.reservations;
