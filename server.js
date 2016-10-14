@@ -21,23 +21,24 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 // var reservations = [{
 //     routeName: 'christi',
-//     name: 'Christi',
-//     phone: '9195555555',
-//     email: 'cs@ymail.com',
-//     id: 100
+//     customerName: 'Christi',
+//     phoneNumber: '9195555555',
+//     customerEmail: 'cs@ymail.com',
+//     customerID: 100
 // }, {
-//     routeName: 'ryan',
-//     name: 'Ryan',
-//     phone: '9195554444',
-//     email: 'ro@unc.edu',
-//     id: 101
+//     routeName:'ryan',
+//     customerName: 'Ryan',
+//     phoneNumber: '9195554444',
+//     customerEmail: 'ro@unc.edu',
+//     customerID: 101
 // }, {
 //     routeName: 'cherish',
-//     name: 'Cherish',
-//     phone: '9195553333',
-//     email: "ck@unc.edu",
-//     id: 102
+//     customerName: 'Cherish',
+//     phoneNumber: '9195553333',
+//     customerEmail: "ck@unc.edu",
+//     customerID: 102
 // }];
+
 
 
 // Routes
@@ -59,11 +60,12 @@ app.get('/tables', function (req, res) {
 
 app.post('/api/tables', function (req, res) {
 	var newreservation = req.body;
-	newreservation.routeName = newreservation.name.replace(/\s+/g, '').toLowerCase();
+	newreservation.routeName = newreservation.customerName.replace(/\s+/g, '').toLowerCase();
 
 	console.log(newreservation);
 
 	tableJS.reservations.push(newreservation);
+    console.log(tableJS);
 
 	res.json(newreservation);
 });
@@ -73,36 +75,38 @@ app.post('/api/waitlist', function (req, res) {
 });
 
 // Search for Specific Reservation (or all reservations) - provides JSON
-// app.get('/api/?', function (req, res) {
-//     var chosen = req.params.reservations;
+app.get('/api/?', function (req, res) {
+    var chosen = req.params.reservations;
 
-//     if (chosen) {
-//         console.log(chosen);
+    if (chosen) {
+        console.log(chosen);
 
-//         for (var i = 0; i < reservations.length; i++) {
-//             if (chosen === reservations[i].routeName) {
-//                 res.json(reservations[i]);
-//                 return;
-//             }
-//         }
+        for (var i = 0; i < reservations.length; i++) {
+            if (chosen === reservations[i].routeName) {
+                res.json(reservations[i]);
+                return;
+            }
+        }
 
-//         res.json(false);
-//     } else {
-//         res.json(reservations);
-//     }
-// });
+        res.json(false);
+    } else {
+        res.json(reservations);
+    }
+});
 
-// // Create New Reservation - takes in JSON input
-// app.post('/api/new', function (req, res) {
-//     var newreservation = req.body;
-//     newreservation.routeName = newreservation.name.replace(/\s+/g, '').toLowerCase();
+// Create New Reservation - takes in JSON input
+app.post('/api/new', function (req, res) {
+    console.log(res);
+    console.log(req.body);
+    var newreservation = req.body;
+    newreservation.routeName = newreservation.customerName.replace(/\s+/g, '').toLowerCase();
 
-//     console.log(newreservation);
+    console.log(newreservation);
 
-//     reservations.push(newreservation);
+    reservations.push(newreservation);
 
-//     res.json(newreservation);
-// });
+    res.json(newreservation);
+});
 
 
 // Starts the server to begin listening
