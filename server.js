@@ -17,6 +17,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 // Restaurant Seed (DATA)
 // =============================================================
+
 // var reservations = [{
 //     routeName: 'christi',
 //     name: 'Christi',
@@ -37,11 +38,13 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 //     id: 102
 // }];
 
+
 // Routes
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
 app.get('/', function (req, res) {
+
     res.sendFile(path.join(__dirname, './app/public/landing.html'));
 });
 
@@ -85,8 +88,10 @@ app.get('/tables', function (req, res) {
 //     res.json(newreservation);
 // });
 
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
+
 });
