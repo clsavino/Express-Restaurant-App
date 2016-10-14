@@ -2,20 +2,23 @@
 // =============================================================
 
 var reservations = [{
-    name: 'Christi',
-    phone: '9195555555',
-    email: 'cs@ymail.com',
-    id: 100
+    routeName: 'christi',
+    customerName: 'Christi',
+    phoneNumber: '9195555555',
+    customerEmail: 'cs@ymail.com',
+    customerID: 100
 }, {
-    name: 'Ryan',
-    phone: '9195554444',
-    email: 'ro@unc.edu',
-    id: 101
+    routeName:'ryan',
+    customerName: 'Ryan',
+    phoneNumber: '9195554444',
+    customerEmail: 'ro@unc.edu',
+    customerID: 101
 }, {
-    name: 'Cherish',
-    phone: '9195553333',
-    email: "ck@unc.edu",
-    id: 102
+    routeName: 'cherish',
+    customerName: 'Cherish',
+    phoneNumber: '9195553333',
+    customerEmail: "ck@unc.edu",
+    customerID: 102
 }];
 
 module.exports = reservations;
