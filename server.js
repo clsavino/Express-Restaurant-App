@@ -61,7 +61,7 @@ app.get('/tables', function (req, res) {
 });
 
 app.get('/api/tables', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/data/tables.js'));
+    res.sendFile(path.join(__dirname, './app/data/table.js'));
 });
 
 app.get('/api/waitlist', function (req, res) {
