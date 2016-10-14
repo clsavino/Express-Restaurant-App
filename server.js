@@ -56,10 +56,6 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, './app/public/tables.html'));
 });
 
-app.get('/tables', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/public/tables.html'));
-});
-
 app.get('/api/tables', function (req, res) {
     res.sendFile(path.join(__dirname, './app/data/table.js'));
 });
