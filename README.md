@@ -4,11 +4,12 @@ Learning to set up web servers with Node.js using Express.
 
 ##### Screenshot 1
 ![Hot Restaurant Image](/images-readme/landing.PNG?raw=true)
+
 ##### Screenshot 2
 ![Hot Restaurant Image](/images-readme/reservationform.PNG?raw=true)
 
 ##### Screenshot 3
-![Hot Restaurant Image](/images-readme/viewtables.PNG?raw=true)
+![Hot Restaurant Image](/images-readme/tables.PNG?raw=true)
 
 ##### Screenshot 4
 ![Hot Restaurant Image](/images-readme/apitables.PNG?raw=true)
