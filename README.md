@@ -1,6 +1,7 @@
 # Express-Restaurant-App
-*Description: Basic app demonstrating Node and Express with jQuery. Overall purpose is to help schedule reservation requests.
-Learning to set up web servers with Node.js using Express.
+
+Basic app demonstrating setting up web servers with Node.js using Express. AJax and  jQuery used. Overall purpose is to help schedule reservation requests.
+
 
 ##### Screenshot 1
 ![Hot Restaurant Image](/images-readme/landing.PNG?raw=true)
