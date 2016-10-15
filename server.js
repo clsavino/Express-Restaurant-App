@@ -17,40 +17,43 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 // Routes
-// =============================================================
+// ===========================================
+require('./app/routing/api-routes.js')(app);
+require('./app/routing/html-routes.js')(app);
+//============================================
 
-// Basic route that sends the userto the landing page
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/public/landing.html'));
-});
-//route to display the reservation page - res.html)
-app.get('/reserve', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/public/res.html'));
-});
-// route to display the tables.html file
-app.get('/tables', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/public/tables.html'));
-});
-//api path to get the current reservations, responds with a json object (an array of reservations)
-app.get('/api/tables', function (req,res) {
-    res.json(reservations);
-});
-// api path to get the current waitlist json object
-app.get('/api/waitlist', function(req,res) {
-    res.json(waitlist);
-});
+// // Basic route that sends the userto the landing page
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname, './app/public/landing.html'));
+// });
+// //route to display the reservation page - res.html)
+// app.get('/reserve', function (req, res) {
+//     res.sendFile(path.join(__dirname, './app/public/res.html'));
+// });
+// // route to display the tables.html file
+// app.get('/tables', function (req, res) {
+//     res.sendFile(path.join(__dirname, './app/public/tables.html'));
+// });
+// //api path to get the current reservations, responds with a json object (an array of reservations)
+// app.get('/api/tables', function (req,res) {
+//     res.json(reservations);
+// });
+// // api path to get the current waitlist json object
+// app.get('/api/waitlist', function(req,res) {
+//     res.json(waitlist);
+// });
 
-// *** Just updates an array of reservations and sends back the json form of the new reservation
-app.post('/api/tables', function (req, res) {
-	var newreservation = req.body;
-	newreservation.routeName = newreservation.customerName.replace(/\s+/g, '').toLowerCase();
-    reservations.push(newreservation);
-	res.json(newreservation);
-});
+// // *** Just updates an array of reservations and sends back the json form of the new reservation
+// app.post('/api/tables', function (req, res) {
+// 	var newreservation = req.body;
+// 	newreservation.routeName = newreservation.customerName.replace(/\s+/g, '').toLowerCase();
+//     reservations.push(newreservation);
+// 	res.json(newreservation);
+// });
 
-app.post('/api/waitlist', function (req, res) {
-    res.sendFile(path.join(__dirname, './app/data/waitlist.js'));
-});
+// app.post('/api/waitlist', function (req, res) {
+//     res.sendFile(path.join(__dirname, './app/data/waitlist.js'));
+// });
 
 // Starts the server to begin listening
 // =============================================================
